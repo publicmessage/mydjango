@@ -5,12 +5,12 @@ name = "pypi"
 
 [packages]
 django = "*"
+django-debug-toolbar = "*"
 gunicorn = "*"
 "psycopg2" = "*"
 whitenoise = "*"
 
 [dev-packages]
-django-debug-toolbar = "*"
 
 [requires]
 python_version = "3.6"
