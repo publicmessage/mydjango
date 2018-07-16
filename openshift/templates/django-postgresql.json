@@ -17,8 +17,8 @@
   },
   "message": "The following service(s) have been created in your project: ${NAME}, ${DATABASE_SERVICE_NAME}.\n\nFor more information about using this template, including OpenShift considerations, see https://github.com/openshift/django-ex/blob/master/README.md.",
   "labels": {
-      "template": "django-psql-example",
-      "app": "django-psql-example"
+    "template": "django-psql-example",
+    "app": "django-psql-example"
   },
   "objects": [
     {
@@ -27,10 +27,10 @@
       "metadata": {
         "name": "${NAME}"
       },
-      "stringData" : {
-        "database-user" : "${DATABASE_USER}",
-        "database-password" : "${DATABASE_PASSWORD}",
-        "django-secret-key" : "${DJANGO_SECRET_KEY}"
+      "stringData": {
+        "database-user": "${DATABASE_USER}",
+        "database-password": "${DATABASE_PASSWORD}",
+        "django-secret-key": "${DJANGO_SECRET_KEY}"
       }
     },
     {
@@ -109,8 +109,8 @@
             },
             "env": [
               {
-                  "name": "PIP_INDEX_URL",
-                  "value": "${PIP_INDEX_URL}"
+                "name": "PIP_INDEX_URL",
+                "value": "${PIP_INDEX_URL}"
               }
             ]
           }
@@ -136,7 +136,7 @@
           }
         ],
         "postCommit": {
-           "script": "./manage.py test"
+          "script": "./manage.py test"
         }
       }
     },
@@ -225,18 +225,18 @@
                   {
                     "name": "DATABASE_USER",
                     "valueFrom": {
-                      "secretKeyRef" : {
-                        "name" : "${NAME}",
-                        "key" : "database-user"
+                      "secretKeyRef": {
+                        "name": "${NAME}",
+                        "key": "database-user"
                       }
                     }
                   },
                   {
                     "name": "DATABASE_PASSWORD",
                     "valueFrom": {
-                      "secretKeyRef" : {
-                        "name" : "${NAME}",
-                        "key" : "database-password"
+                      "secretKeyRef": {
+                        "name": "${NAME}",
+                        "key": "database-password"
                       }
                     }
                   },
@@ -247,9 +247,9 @@
                   {
                     "name": "DJANGO_SECRET_KEY",
                     "valueFrom": {
-                      "secretKeyRef" : {
-                        "name" : "${NAME}",
-                        "key" : "django-secret-key"
+                      "secretKeyRef": {
+                        "name": "${NAME}",
+                        "key": "django-secret-key"
                       }
                     }
                   }
@@ -351,18 +351,18 @@
                   {
                     "name": "POSTGRESQL_USER",
                     "valueFrom": {
-                      "secretKeyRef" : {
-                        "name" : "${NAME}",
-                        "key" : "database-user"
+                      "secretKeyRef": {
+                        "name": "${NAME}",
+                        "key": "database-user"
                       }
                     }
                   },
                   {
                     "name": "POSTGRESQL_PASSWORD",
                     "valueFrom": {
-                      "secretKeyRef" : {
-                        "name" : "${NAME}",
-                        "key" : "database-password"
+                      "secretKeyRef": {
+                        "name": "${NAME}",
+                        "key": "database-password"
                       }
                     }
                   },
@@ -381,14 +381,19 @@
                   "timeoutSeconds": 1,
                   "initialDelaySeconds": 5,
                   "exec": {
-                    "command": [ "/usr/libexec/check-container" ]
+                    "command": [
+                      "/usr/libexec/check-container"
+                    ]
                   }
                 },
                 "livenessProbe": {
                   "timeoutSeconds": 10,
                   "initialDelaySeconds": 120,
                   "exec": {
-                    "command": [ "/usr/libexec/check-container", "--live" ]
+                    "command": [
+                      "/usr/libexec/check-container",
+                      "--live"
+                    ]
                   }
                 },
                 "resources": {

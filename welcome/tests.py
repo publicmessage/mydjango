@@ -1,8 +1,10 @@
 import os
 
-from .models import PageView
-from .database import info
 from django.test import TestCase
+
+from .database import info
+from .models import PageView
+
 
 # These basic tests are to be used as an example for running tests in S2I
 # and OpenShift when building an application image.
@@ -12,10 +14,12 @@ class PageViewModelTest(TestCase):
         pagetest = PageView.objects.get(hostname='localhost')
         self.assertEqual(pagetest.hostname, 'localhost')
 
+
 class PageViewTest(TestCase):
     def test_index(self):
         resp = self.client.get('/')
         self.assertEqual(resp.status_code, 200)
+
 
 class DbEngine(TestCase):
     def setUp(self):
